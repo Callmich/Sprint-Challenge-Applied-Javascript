@@ -24,28 +24,39 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     // console.log(response.data.articles)
     console.log(Object.keys(response.data.articles))
     console.log(Object.values(response.data.articles.javascript))
-    // const keys = Object.keys(response.data.articles)
-    const javascript = Object.values(response.data.articles.javascript)
-    const bootstrap = Object.values(response.data.articles.bootstrap)
-    const technology = Object.values(response.data.articles.technology)
-    const jquery = Object.values(response.data.articles.jquery)
-    const node = Object.values(response.data.articles.node)
+    const keys = Object.keys(response.data.articles)
+    const arties = Object.values(Object.values(response.data.articles.keys.forEach(()=>{
+        return arties
+    })) 
+    
+        arties.forEach(items => {
+        cardSpot.append(createCard(items))
+    });
 
-    javascript.forEach(items => {
-        cardSpot.append(createCard(items))
-    })
-    bootstrap.forEach(items => {
-        cardSpot.append(createCard(items))
-    })
-    technology.forEach(items => {
-        cardSpot.append(createCard(items))
-    })
-    jquery.forEach(items => {
-        cardSpot.append(createCard(items))
-    })
-    node.forEach(items => {
-        cardSpot.append(createCard(items))
-    })
+    
+    
+    
+    // const javascript = Object.values(response.data.articles.javascript)
+    // const bootstrap = Object.values(response.data.articles.bootstrap)
+    // const technology = Object.values(response.data.articles.technology)
+    // const jquery = Object.values(response.data.articles.jquery)
+    // const node = Object.values(response.data.articles.node)
+
+    // javascript.forEach(items => {
+    //     cardSpot.append(createCard(items))
+    // })
+    // bootstrap.forEach(items => {
+    //     cardSpot.append(createCard(items))
+    // })
+    // technology.forEach(items => {
+    //     cardSpot.append(createCard(items))
+    // })
+    // jquery.forEach(items => {
+    //     cardSpot.append(createCard(items))
+    // })
+    // node.forEach(items => {
+    //     cardSpot.append(createCard(items))
+    // })
 })
 .catch(error => {
     console.log(`The data was not returned`, error)
