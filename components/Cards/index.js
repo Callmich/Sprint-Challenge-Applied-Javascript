@@ -22,9 +22,12 @@
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(response => {
     // console.log(response.data.articles)
-    console.log(Object.values(response.data.articles))
+    console.log(Object.keys(response.data.articles))
+    console.log(Object.values(response.data.articles.javascript))
+    const keys = Object.keys(response.data.articles)
+    const values = Object.values(response.data.articles.javascript)
 
-    Object.values(response.data.articles).map(items => {
+    values.forEach(items => {
         cardSpot.append(createCard(items))
     })
 })
@@ -47,16 +50,16 @@ function createCard(info){
 
 
     //text content goes here
-    artHead.textContent = info.forEach(item => {
-        return item.headline
+    artHead.textContent = info.map(item => {
+        item.headline
     });
 
-    autImg.src = info.forEach(item => {
-        return item.authorPhoto
+    autImg.src = info.map(item => {
+        item.authorPhoto
     });
 
-    autName.textContent = info.forEach(item => {
-        return item.authorName
+    autName.textContent = info.map(item => {
+        item.authorName
     });
 
     //append goes here
