@@ -9,16 +9,16 @@
 //    <div class="tab">topic here</div>
 
 
-axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
-.then(response => {
-    console.log(response.data.topics)
-    response.data.topics.map(item => {
-        tPlacement.append(createTopics(item))
-    })
-})
-.catch( error =>{
-    console.log(`The data was not returned`, error)
-})
+// axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
+// .then(response => {
+//     console.log(response)
+//     response.data.topics.map(item => {
+//         tPlacement.append(createTopics(item))
+//     })
+// })
+// .catch( error =>{
+//     console.log(`The data was not returned`, error)
+// })
 
 function createTopics(topics){
     const topicsDiv = document.createElement(`div`);
