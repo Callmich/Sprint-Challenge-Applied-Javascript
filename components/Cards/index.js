@@ -19,15 +19,20 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 
-// axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
-// .then(response => {
-//     console.log(response)
-// })
-// .catch(error => {
-//     console.log(`The data was not returned`, error)
-// })
+axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
+.then(response => {
+    // console.log(response.data.articles)
+    console.log(Object.values(response.data.articles))
 
-funct createCard(){
+    Object.values(response.data.articles).map(items => {
+        cardSpot.append(createCard(items))
+    })
+})
+.catch(error => {
+    console.log(`The data was not returned`, error)
+})
+
+function createCard(info){
     const newCard = document.createElement(`div`),
           artHead = document.createElement(`h1`),
           autInfo = document.createElement(`div`),
@@ -42,13 +47,30 @@ funct createCard(){
 
 
     //text content goes here
+    artHead.textContent = info.forEach(item => {
+        return item.headline
+    });
 
+    autImg.src = info.forEach(item => {
+        return item.authorPhoto
+    });
+
+    autName.textContent = info.forEach(item => {
+        return item.authorName
+    });
 
     //append goes here
 
+    newCard.append(artHead);
+    newCard.append(autInfo);
+    autInfo.append(imgCont);
+    autInfo.append(autName);
+    imgCont.append(autImg);
+
 
     //return goes here
-
-
+    return newCard
 
 } 
+
+const cardSpot = document.querySelector(`.cards-container`)
