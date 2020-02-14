@@ -9,9 +9,9 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
-function Header(day, degrees) {
-    const head = document.createElementNS('div'),
-          date = document.createElementNS('span'),
+function Header(day, degree) {
+    const head = document.createElement('div'),
+          date = document.createElement('span'),
           lamb = document.createElement('h1'),
           temp = document.createElement('span');
 
@@ -21,7 +21,7 @@ function Header(day, degrees) {
 
     date.textContent = day;
     lamb.textContent = 'Lambda Times';
-    temp.textContent = degrees;
+    temp.textContent = degree;
 
     head.append(date);
     head.append(lamb);
