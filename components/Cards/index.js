@@ -24,10 +24,26 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     // console.log(response.data.articles)
     console.log(Object.keys(response.data.articles))
     console.log(Object.values(response.data.articles.javascript))
-    const keys = Object.keys(response.data.articles)
-    const values = Object.values(response.data.articles.javascript)
+    // const keys = Object.keys(response.data.articles)
+    const javascript = Object.values(response.data.articles.javascript)
+    const bootstrap = Object.values(response.data.articles.bootstrap)
+    const technology = Object.values(response.data.articles.technology)
+    const jquery = Object.values(response.data.articles.jquery)
+    const node = Object.values(response.data.articles.node)
 
-    values.forEach(items => {
+    javascript.forEach(items => {
+        cardSpot.append(createCard(items))
+    })
+    bootstrap.forEach(items => {
+        cardSpot.append(createCard(items))
+    })
+    technology.forEach(items => {
+        cardSpot.append(createCard(items))
+    })
+    jquery.forEach(items => {
+        cardSpot.append(createCard(items))
+    })
+    node.forEach(items => {
         cardSpot.append(createCard(items))
     })
 })
@@ -50,17 +66,11 @@ function createCard(info){
 
 
     //text content goes here
-    artHead.textContent = info.map(item => {
-        item.headline
-    });
+    artHead.textContent = info.headline;
 
-    autImg.src = info.map(item => {
-        item.authorPhoto
-    });
+    autImg.src = info.authorPhoto;
 
-    autName.textContent = info.map(item => {
-        item.authorName
-    });
+    autName.textContent = info.authorName;
 
     //append goes here
 
