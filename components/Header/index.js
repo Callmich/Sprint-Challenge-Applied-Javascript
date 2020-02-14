@@ -9,4 +9,27 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
-function Header() {}
+function Header(day, degrees) {
+    const head = document.createElementNS('div'),
+          date = document.createElementNS('span'),
+          lamb = document.createElement('h1'),
+          temp = document.createElement('span');
+
+    head.classList.add('header');
+    date.classList.add('date');
+    temp.classList.add('temp');
+
+    date.textContent = day;
+    lamb.textContent = 'Lambda Times';
+    temp.textContent = degrees;
+
+    head.append(date);
+    head.append(lamb);
+    head.append(temp);
+
+    return head
+}
+
+const headCont = document.querySelector('.header-container');
+
+headCont.append(Header('SMARCH 28, 2019', '98°'))
